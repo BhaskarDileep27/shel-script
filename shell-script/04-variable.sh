@@ -1,5 +1,5 @@
 #!/bin/bash
-persion1=$1
+persion1=
 persion2=$2
 
 echo $persion1: hai $persion2, how are you
