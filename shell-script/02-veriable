@@ -1,6 +1,6 @@
 #!/bin/bash
 dileep=persion1
-subhash=persion2
+subash=persion2
 
 echo $dileep: hai $subash, how are you
 echo $subash: hai $dileep, i am fine what about you
