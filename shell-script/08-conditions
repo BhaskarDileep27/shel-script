@@ -5,3 +5,5 @@ if [ $NUMBER1 -gt 1000 ]
 then 
 echo "number is greater than 1000"
 else
+echo "Give number $NUMBER1 is not greater than 1000"
+fi
