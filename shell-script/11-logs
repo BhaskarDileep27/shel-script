@@ -1,24 +1,48 @@
 #!/bin/bash
 ID=$(id -u)
+
+TIME=$(date +%F-%H-%M-%S)
+
+LOGFILE="/tmp/mysql_installation_$TIME.log
+
+echo "Script started executing at $TIMESTAMP" &>> $LOGFILE
+
 validation()
 {
     if [ $ID -ne 0 ] # command line argument $? is used to check the last command execution status, if it is 0 then it is success and if it is other than 0 then it is failed
 
-then 
+
+then
+
 echo "ERROR:: please run this script with root accesws"
+
 exit 1 # you can give other than 0
+
 else 
+
 echo "you are root user"
+
 fi # fi means reverse of if, indicating condition end
 }
+
 if [ $? -ne 0 ] # command line argument $? is used to check the last command execution status
+
 then
+
 echo "ERROR:: Insttalling mysql is failed"
+
 exit 1 # you can give other than 0
+
 else 
+
 echo "Installing mysql is SUCCESS"
+
 yum install mysql-server -y $>>logfile
+
 validation $?
+
 yum install mysql -y $>>logfile
+
 validation $?
+
 fi
