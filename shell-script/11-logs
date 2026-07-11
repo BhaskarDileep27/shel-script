@@ -45,4 +45,3 @@ yum install mysql -y   &>> $LOGFILE
 
 validation $?
 
-fi
