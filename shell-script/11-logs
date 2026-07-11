@@ -31,17 +31,17 @@ then
 
 echo "ERROR:: Insttalling mysql is failed"
 
-exit 1 # you can give other than 0
+exit 1  # you can give other than 0
 
 else 
 
 echo "Installing mysql is SUCCESS"
 
-yum install mysql-server -y $>>logfile
+yum install mysql-server -y &>> $LOGFILE
 
 validation $?
 
-yum install mysql -y $>>logfile
+yum install mysql -y &>> $LOGFILE
 
 validation $?
 
