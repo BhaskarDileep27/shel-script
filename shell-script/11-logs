@@ -21,3 +21,4 @@ yum install mysql-server -y $>>logfile
 validation $?
 yum install mysql -y $>>logfile
 validation $?
+fi
