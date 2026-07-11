@@ -34,8 +34,7 @@ echo -e "ERROR:: Insttalling mysql is failed"
 exit 1  # you can give other than 0
 
 else 
-
-echo -e "Installing mysql is SUCCESS"
+      echo -e "Installing mysql is SUCCESS"
 
 yum install mysql-server -y   &>> $LOGFILE
 
@@ -45,3 +44,4 @@ yum install mysql -y   &>> $LOGFILE
 
 validation $?
 
+fi
