@@ -12,6 +12,12 @@ ehco "you are root user"
 
 fi # fi means reverse of if, indicating condition end
 }
+if [ $? -ne 0 ]
+then 
+echo "ERROR:: Installing MySQL is failed"
+exit 1
+else
+echo "Installing MySQL is SUCCESS"
 yum install mysql -y
 VALIDATION $?
 
