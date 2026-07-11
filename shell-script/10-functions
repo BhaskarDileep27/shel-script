@@ -8,7 +8,7 @@ then
 echo "ERROR:: please run this script with root accesws"
 exit 1 # you can give other than 0
 else
-ehco "you are root user"
+echo "You are root user"
 
 fi # fi means reverse of if, indicating condition end
 }
