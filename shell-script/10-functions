@@ -19,8 +19,12 @@ exit 1 # you can give other than 0
 else
 echo "Installing MySQL is SUCCESS"
 yum install mysql -y
-VALIDATION $?
-yum install git -y
+
 VALIDATION $?
 
+yum install git -y
+
+VALIDATION $?
+
+fi
 
