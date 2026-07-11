@@ -1,48 +1,38 @@
 #!/bin/bash
+
+
 ID=$(id -u)
+TIMESTAMP=$(date +%F-%H-%M-%S)
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
 
-TIME=$(date +%F-%H-%M-%S)
-
-LOGFILE="/tmp/mysql_installation_$TIME.log
+LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
 echo "Script started executing at $TIMESTAMP" &>> $LOGFILE
 
-VALIDATION()
-{
-    if [ $ID -ne 0 ] # command line argument $? is used to check the last command execution status, if it is 0 then it is success and if it is other than 0 then it is failed
-
-
-then
-
-echo -e"ERROR:: please run this script with root accesws"
-
-exit 1 # you can give other than 0
-
-else 
-
-echo "you are root user"
-
-fi # fi means reverse of if, indicating condition end
+VALIDATE(){
+    if [ $1 -ne 0 ]
+    then
+        echo -e "ERROR:: $2 ... $R FAILED $N"
+        exit 1
+    else
+        echo -e "$2 ... $G SUCCESS $N"
+    fi
 }
 
-if [ $? -ne 0 ] # command line argument $? is used to check the last command execution status
-
+if [ $ID -ne 0 ]
 then
+    echo -e "$R ERROR:: Please run this script with root access $N"
+    exit 1 # you can give other than 0
+else
+    echo "You are root user"
+fi # fi means reverse of if, indicating condition end
 
-echo -e "ERROR:: Insttalling mysql is failed"
+yum install mysql -y &>> $LOGFILE
 
-exit 1  # you can give other than 0
+VALIDATE $? "Installing MySQL"
 
-else 
+yum install git -y &>> $LOGFILE
 
-echo -e "Installing mysql is SUCCESS"
-
-yum install mysql-server -y   &>> $LOGFILE
-
-VALIDATION $?
-
-yum install mysql -y   &>> $LOGFILE
-
-VALIDATION $?
-
- fi
+VALIDATE $? "Installing GIT"
