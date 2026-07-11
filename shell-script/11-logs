@@ -7,7 +7,7 @@ LOGFILE="/tmp/mysql_installation_$TIME.log
 
 echo "Script started executing at $TIMESTAMP" &>> $LOGFILE
 
-validation()
+VALIDATION()
 {
     if [ $ID -ne 0 ] # command line argument $? is used to check the last command execution status, if it is 0 then it is success and if it is other than 0 then it is failed
 
@@ -34,14 +34,15 @@ echo -e "ERROR:: Insttalling mysql is failed"
 exit 1  # you can give other than 0
 
 else 
-      echo -e "Installing mysql is SUCCESS"
+
+echo -e "Installing mysql is SUCCESS"
 
 yum install mysql-server -y   &>> $LOGFILE
 
-validation $?
+VALIDATION $?
 
 yum install mysql -y   &>> $LOGFILE
 
-validation $?
+VALIDATION $?
 
-fi
+ fi
