@@ -14,7 +14,7 @@ validation()
 
 then
 
-echo "ERROR:: please run this script with root accesws"
+echo -e"ERROR:: please run this script with root accesws"
 
 exit 1 # you can give other than 0
 
@@ -29,19 +29,19 @@ if [ $? -ne 0 ] # command line argument $? is used to check the last command exe
 
 then
 
-echo "ERROR:: Insttalling mysql is failed"
+echo -e "ERROR:: Insttalling mysql is failed"
 
 exit 1  # you can give other than 0
 
 else 
 
-echo "Installing mysql is SUCCESS"
+echo -e "Installing mysql is SUCCESS"
 
-yum install mysql-server -y &>> $LOGFILE
+yum install mysql-server -y   &>> $LOGFILE
 
 validation $?
 
-yum install mysql -y &>> $LOGFILE
+yum install mysql -y   &>> $LOGFILE
 
 validation $?
 
